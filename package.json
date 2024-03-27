@@ -1,12 +1,26 @@
 {
   "name": "i7h.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "files": [
     "dist"
   ],
+  "exports": {
+    "./types": "./dist/types/index.d.ts",
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
   "scripts": {
     "build": "npm-run-all --parallel build:cjs build:esm build:type",
     "build:cjs": "tsc --target ES2015 --module CommonJS --outDir dist/cjs",

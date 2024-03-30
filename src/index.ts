@@ -1,4 +1,4 @@
-export default function i18n(s: string) {
+export default function i7h(s: string) {
   return s.replace(/\w+/g, (r: string): string => {
     if (r.length <= 2) {
       return r;

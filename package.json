@@ -1,6 +1,6 @@
 {
   "name": "i7h.js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/index.umd.js",
   "unpkg": "dist/index.min.js",
   "module": "dist/index.mjs",

@@ -1,8 +1,9 @@
 {
   "name": "i7h.js",
   "version": "1.0.3",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.umd.js",
+  "unpkg": "dist/index.min.js",
+  "module": "dist/index.mjs",
   "types": "dist/types/index.d.ts",
   "files": [
     "dist"
@@ -13,24 +14,26 @@
     ".": {
       "import": {
         "types": "./dist/types/index.d.ts",
-        "default": "./dist/esm/index.js"
+        "default": "./dist/index.mjs"
       },
       "require": {
         "types": "./dist/types/index.d.ts",
-        "default": "./dist/cjs/index.js"
+        "default": "./dist/index.cjs.js"
       }
     }
   },
   "scripts": {
-    "build": "npm-run-all --parallel build:cjs build:esm build:type",
-    "build:cjs": "tsc --target ES2015 --module CommonJS --outDir dist/cjs",
-    "build:esm": "tsc --target ESNext --module ESNext --outDir dist/esm",
-    "build:type": "tsc --declaration --emitDeclarationOnly --outDir dist/types"
+    "build": "npm-run-all --parallel build:dist",
+    "build:dist": "rollup --bundleConfigAsCjs -c"
   },
   "license": "MIT",
   "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
     "@types/node": "^20.11.30",
     "npm-run-all": "^4.1.5",
+    "rollup": "^4.13.2",
+    "tslib": "^2.6.2",
     "typescript": "^5.4.3"
   }
 }

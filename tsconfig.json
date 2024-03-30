@@ -1,9 +1,15 @@
 {
   "compilerOptions": {
+    "target": "ES2015",
+    "module": "ESNext",
+    "declaration": true,
+    "declarationDir": "./dist/types",
     "moduleResolution": "node",
     "strict": true,
+    "noEmit": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist/types"
   },
   "include": ["src/index.ts"],
   "exclude": ["node_modules"]
